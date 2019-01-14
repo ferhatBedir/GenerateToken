@@ -53,7 +53,7 @@ public class GenerateTokenService {
 
     private String addPayloadToToken(SignatureAlgorithm signatureAlgorithm, Key singingKey, UserInfo userInfo) {
         userInfo.setAvatar("https:/gravatar.com/avatar/abc123");
-        long expireDate = 1549054800000l;
+        long expireDate = 1577826000000L;
         Date date = new Date(expireDate);
 
         Claims subClaims = new DefaultClaims();
@@ -66,9 +66,11 @@ public class GenerateTokenService {
                 .setAudience(aud)
                 .setIssuer(iss)
                 .setSubject(sub)
-                .claim("room", "test49")
+                .claim("room", "test50")
                 .setExpiration(date)
                 .signWith(signatureAlgorithm, singingKey);
+
+
         return builder.compact();
     }
 }
